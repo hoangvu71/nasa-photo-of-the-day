@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {Box, BoxContainer, TitleStyle, ExplainStyle, ImageStyle} from "./stylecomponents/Box"
 
 /////Components/////
 import Image from "./imagecomponent/Image";
@@ -24,12 +25,22 @@ function PhotoCard() {
   if (!data) return <h3>...Loading</h3>;
 
   return (
-    <div>
-      <Image linkImage={data.url} />
-      <Title title={data.title} />
-      <Date date={data.date} />
-      <Explain explain={data.explanation} />
-    </div>
+    <BoxContainer>
+      <ImageStyle>
+        <Image linkImage={data.url} />
+      </ImageStyle>
+      <Box>
+        <TitleStyle>
+          <Title title={data.title} />
+        </TitleStyle>
+        <Date date={data.date} />
+        <ExplainStyle>
+          <Explain explain={data.explanation} />
+        </ExplainStyle>
+      </Box>
+      
+      
+    </BoxContainer>
   );
 }
 
